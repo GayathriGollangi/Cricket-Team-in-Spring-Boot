@@ -36,7 +36,7 @@ public class PlayerH2Service implements PlayerRepository{
     @Override
     public Player getPlayerId(int playerId) {
         try{
-            Player player = db.queryForObject("select * from team where id =?",new PlayerRowMapper(),playerId);
+            Player player = db.queryForObject("select * from team where playerId =?",new PlayerRowMapper(),playerId);
             return player;
         }
         catch(Exception e){
@@ -48,11 +48,11 @@ public class PlayerH2Service implements PlayerRepository{
     public Player addPlayer(Player player) {
         db.update("insert into team(playerName, jerseyNumber, role) values (?, ?, ?)", player.getPlayerName(),player.getJerseyNumber(),player.getPlayerRole());
 
-            Player savedBook = db.queryForObject("select * from team where playerName = ? and jerseyNumber = ? and role = ?",
+            Player savedPlayer = db.queryForObject("select * from team where playerName = ? and jerseyNumber = ? and role = ?",
                                                 new PlayerRowMapper(), player.getPlayerName(), player.getJerseyNumber(),player.getPlayerRole());
 
 
-            return savedBook;
+            return savedPlayer;
     }
     @Override
     public Player updatePlayer(int playerId, Player player) {
@@ -69,7 +69,7 @@ public class PlayerH2Service implements PlayerRepository{
             }
     @Override
     public void deletePlayer(int playerId) {
-        db.update("delete from team where id =?",playerId);
+        db.update("delete from team where playerId =?",playerId);
     }
 	
 }
