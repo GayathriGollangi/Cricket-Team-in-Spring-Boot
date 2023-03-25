@@ -29,14 +29,14 @@ public class Player{
     public int getJerseyNumber(){
         return jerseyNumber;
     }
-    public void setIJerseyNumber(int jerseyNumber){
+    public void setJerseyNumber(int jerseyNumber){
         this.jerseyNumber = jerseyNumber;
     }
-     public String getPlayerRole() {
+     public String getRole() {
         return role;
     }
 
-    public void setPlayerRole(String role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
