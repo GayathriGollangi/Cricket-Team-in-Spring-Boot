@@ -29,22 +29,22 @@ import java.util.*;
    }
 
     @GetMapping("/players/{playerId}")
-    public Player getPlayerById(@PathVariable("playerId") int playerId) {
+    public Player getPlayerId(@PathVariable("playerId") int playerId) {
         return playerService.getPlayerId(playerId);
     }
 
     @PostMapping("/players")
-    public Player addBook(@RequestBody Player player) {
+    public Player addPlayer(@RequestBody Player player) {
         return playerService.addPlayer(player);
     } 
 
     @PutMapping("/players/{playerId}")
-    public Player updateBook(@PathVariable("playerId") int playerId, @RequestBody Player player) {
+    public Player updatePlayer(@PathVariable("playerId") int playerId, @RequestBody Player player) {
         return playerService.updatePlayer(playerId, player);
     }  
 
     @DeleteMapping("/players/{playerId}")
-    public void deleteBook(@PathVariable("playerId") int playerId){
+    public void deletePlayer(@PathVariable("playerId") int playerId){
         playerService.deletePlayer(playerId);
     }
 
